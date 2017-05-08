@@ -48,7 +48,6 @@ export default class SGoogleMapInfoWindowComponent extends SGoogleMapComponentBa
 	 */
 	static get mountDependencies() {
 		return [function() {
-			console.log('check');
 			return __whenAttribute(this.parentNode, 'inited');
 		}];
 	}
@@ -97,7 +96,7 @@ export default class SGoogleMapInfoWindowComponent extends SGoogleMapComponentBa
 		}
 
 		// init info window
-		this._infoWindow = new this.google.maps.InfoWindow({
+		this._infoWindow = new this._google.maps.InfoWindow({
 			content : this.innerHTML
 		});
 

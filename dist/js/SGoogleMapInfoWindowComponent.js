@@ -95,7 +95,7 @@ var SGoogleMapInfoWindowComponent = function (_SGoogleMapComponentB) {
 			}
 
 			// init info window
-			this._infoWindow = new this.google.maps.InfoWindow({
+			this._infoWindow = new this._google.maps.InfoWindow({
 				content: this.innerHTML
 			});
 
@@ -204,7 +204,6 @@ var SGoogleMapInfoWindowComponent = function (_SGoogleMapComponentB) {
 		key: 'mountDependencies',
 		get: function get() {
 			return [function () {
-				console.log('check');
 				return (0, _whenAttribute2.default)(this.parentNode, 'inited');
 			}];
 		}
