@@ -35,17 +35,17 @@ export default class SGoogleMapInfoWindowComponent extends SGoogleMapComponentBa
 			${componentNameDash} {
 				display: none;
 			}
-			${componentNameDash} .gm-style-iw {
+			.gm-style-iw {
 				top:auto !important; left:0 !important;
 				bottom: 0 !important;
 				width:100% !important;
 			}
-			${componentNameDash} .gm-style-iw > div:first-child {
+			.gm-style-iw > div:first-child {
 				display:block !important;
 			}
-			${componentNameDash} .gm-style-iw,
-			${componentNameDash} .gm-style-iw > *,
-			${componentNameDash} .gm-style-iw > * > * {
+			.gm-style-iw,
+			.gm-style-iw > *,
+			.gm-style-iw > * > * {
 				overflow:visible !important;
 			}
 		`;

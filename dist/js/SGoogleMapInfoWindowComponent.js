@@ -285,7 +285,7 @@ var SGoogleMapInfoWindowComponent = function (_SGoogleMapComponentB) {
    * @protected
    */
 		value: function defaultCss(componentName, componentNameDash) {
-			return '\n\t\t\t' + componentNameDash + ' {\n\t\t\t\tdisplay: none;\n\t\t\t}\n\t\t\t' + componentNameDash + ' .gm-style-iw {\n\t\t\t\ttop:auto !important; left:0 !important;\n\t\t\t\tbottom: 0 !important;\n\t\t\t\twidth:100% !important;\n\t\t\t}\n\t\t\t' + componentNameDash + ' .gm-style-iw > div:first-child {\n\t\t\t\tdisplay:block !important;\n\t\t\t}\n\t\t\t' + componentNameDash + ' .gm-style-iw,\n\t\t\t' + componentNameDash + ' .gm-style-iw > *,\n\t\t\t' + componentNameDash + ' .gm-style-iw > * > * {\n\t\t\t\toverflow:visible !important;\n\t\t\t}\n\t\t';
+			return '\n\t\t\t' + componentNameDash + ' {\n\t\t\t\tdisplay: none;\n\t\t\t}\n\t\t\t.gm-style-iw {\n\t\t\t\ttop:auto !important; left:0 !important;\n\t\t\t\tbottom: 0 !important;\n\t\t\t\twidth:100% !important;\n\t\t\t}\n\t\t\t.gm-style-iw > div:first-child {\n\t\t\t\tdisplay:block !important;\n\t\t\t}\n\t\t\t.gm-style-iw,\n\t\t\t.gm-style-iw > *,\n\t\t\t.gm-style-iw > * > * {\n\t\t\t\toverflow:visible !important;\n\t\t\t}\n\t\t';
 		}
 
 		/**
