@@ -26,6 +26,13 @@ Author : Olivier Bossel <olivier.bossel@gmail.com>
 
 Here's the list of available attribute to set on the element.
 
+### opened
+
+Set if the popup window is opened or not
+
+Type : **{ [Boolean](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Boolean) }**
+
+
 ### Google Map Info Window API
 
 Support all the google map info window API properties
@@ -51,3 +58,23 @@ Type : **{ Google.Map }**
 Access the google map marker instance
 
 Type : **{ Google.Map.Marker }**
+
+
+### infoWindow
+
+Access the infoWindow map instance
+
+Type : **{ Google.Map.InfoWindow }**
+
+
+## Methods
+
+
+### open
+
+Open the window
+
+
+### close
+
+Close the window
