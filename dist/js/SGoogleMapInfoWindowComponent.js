@@ -117,11 +117,11 @@ var SGoogleMapInfoWindowComponent = function (_SGoogleMapComponentB) {
 			});
 
 			// init info window
-			this._infoWindow = new this._google.maps.InfoWindow({
+			this._infoWindow = new this.google.maps.InfoWindow({
 				content: this.innerHTML
 			});
 
-			this._google.maps.event.addListener(this._infoWindow, 'domready', function (e) {
+			this.google.maps.event.addListener(this._infoWindow, 'domready', function (e) {
 				[].forEach.call(document.querySelectorAll('.gm-style-iw'), function (infoViewElm) {
 					// get the previous
 					var preview = (0, _previous2.default)(infoViewElm, 'div');
@@ -138,7 +138,7 @@ var SGoogleMapInfoWindowComponent = function (_SGoogleMapComponentB) {
 				});
 			});
 
-			this._google.maps.event.addListener(this.map, 'click', function () {
+			this.google.maps.event.addListener(this.map, 'click', function () {
 				// close
 				_this2.setProp('opened', false);
 			});

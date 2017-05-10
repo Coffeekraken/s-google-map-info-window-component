@@ -140,11 +140,11 @@ export default class SGoogleMapInfoWindowComponent extends SGoogleMapComponentBa
 		});
 
 		// init info window
-		this._infoWindow = new this._google.maps.InfoWindow({
+		this._infoWindow = new this.google.maps.InfoWindow({
 			content : this.innerHTML
 		});
 
-		this._google.maps.event.addListener(this._infoWindow, 'domready', (e) => {
+		this.google.maps.event.addListener(this._infoWindow, 'domready', (e) => {
 			[].forEach.call(document.querySelectorAll('.gm-style-iw'), (infoViewElm) => {
 				// get the previous
 				const preview = __previous(infoViewElm, 'div');
@@ -161,7 +161,7 @@ export default class SGoogleMapInfoWindowComponent extends SGoogleMapComponentBa
 			});
 		});
 
-		this._google.maps.event.addListener(this.map, 'click', () => {
+		this.google.maps.event.addListener(this.map, 'click', () => {
 			// close
 			this.setProp('opened', false);
 		});
