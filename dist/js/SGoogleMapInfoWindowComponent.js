@@ -39,7 +39,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * @extends 	SGoogleMapComponentBase
  * Provide a simple, declarative and powerful webcomponent wrapper to create google info window inside an s-google-map-marker component.
  *
- * @styleguide  	Objects / Google Map
  * @example 	html
  * <s-google-map center="{lat: -25.363, lng: 131.044}">
  * 	<s-google-map-marker position="{lat: -25.363, lng: 131.044}">
