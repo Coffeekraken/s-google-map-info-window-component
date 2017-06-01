@@ -7,10 +7,11 @@ Provide a simple, declarative and powerful webcomponent wrapper to create google
 
 ### Example
 ```html
-	<s-google-map api-key="..." center="{lat: -25.363, lng: 131.044}">
-	<s-google-map-marker api-key="..." position="{lat: -25.363, lng: 131.044}">
+	<s-google-map center="{lat: -25.363, lng: 131.044}">
+	<s-google-map-marker position="{lat: -25.363, lng: 131.044}">
 		<s-google-map-info-window>
-  		<!-- info window content here... -->
+  		<h3>Info window content</h3>
+  		<p>Aliquam rhoncus nibh vitae enim sodales posuere. Aliquam erat volutpat.</p>
 		</s-google-map-info-window>
 	</s-google-map-marker>
 </s-google-map>
@@ -25,6 +26,13 @@ Author : Olivier Bossel <olivier.bossel@gmail.com>
 ## Attributes
 
 Here's the list of available attribute to set on the element.
+
+### opened
+
+Set if the popup window is opened or not
+
+Type : **{ [Boolean](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Boolean) }**
+
 
 ### Google Map Info Window API
 
@@ -51,3 +59,23 @@ Type : **{ Google.Map }**
 Access the google map marker instance
 
 Type : **{ Google.Map.Marker }**
+
+
+### infoWindow
+
+Access the infoWindow map instance
+
+Type : **{ Google.Map.InfoWindow }**
+
+
+## Methods
+
+
+### open
+
+Open the window
+
+
+### close
+
+Close the window
