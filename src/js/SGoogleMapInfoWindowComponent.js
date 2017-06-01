@@ -178,6 +178,11 @@ export default class SGoogleMapInfoWindowComponent extends SGoogleMapComponentBa
 		// listen for marker click
 		this.marker.addListener('click', this._onMarkerClick.bind(this));
 
+		// open if opened props is true
+		if (this.props.opened) {
+			this._open();
+		}
+
 	}
 
 	/**

@@ -1,23 +1,23 @@
-# Coffeekraken s-google-map-marker-component <img src=".resources/coffeekraken-logo.jpg" height="25px" />
+# Coffeekraken s-google-map-info-window-component <img src=".resources/coffeekraken-logo.jpg" height="25px" />
 
 <p>
-	<a href="https://travis-ci.org/Coffeekraken/s-google-map-marker-component">
-		<img src="https://img.shields.io/travis/Coffeekraken/s-google-map-marker-component.svg?style=flat-square" />
+	<a href="https://travis-ci.org/Coffeekraken/s-google-map-info-window-component">
+		<img src="https://img.shields.io/travis/Coffeekraken/s-google-map-info-window-component.svg?style=flat-square" />
 	</a>
-	<a href="https://www.npmjs.com/package/coffeekraken-s-google-map-marker-component">
+	<a href="https://www.npmjs.com/package/coffeekraken-s-google-map-info-window-component">
 		<img src="https://img.shields.io/npm/v/coffeekraken-s-datepicker.svg?style=flat-square" />
 	</a>
-	<a href="https://github.com/coffeekraken/s-google-map-marker-component/blob/master/LICENSE.txt">
+	<a href="https://github.com/coffeekraken/s-google-map-info-window-component/blob/master/LICENSE.txt">
 		<img src="https://img.shields.io/npm/l/coffeekraken-s-datepicker.svg?style=flat-square" />
 	</a>
-	<!-- <a href="https://github.com/coffeekraken/s-google-map-marker-component">
+	<!-- <a href="https://github.com/coffeekraken/s-google-map-info-window-component">
 		<img src="https://img.shields.io/npm/dt/coffeekraken-s-datepicker.svg?style=flat-square" />
 	</a>
-	<a href="https://github.com/coffeekraken/s-google-map-marker-component">
-		<img src="https://img.shields.io/github/forks/coffeekraken/s-google-map-marker-component.svg?style=social&label=Fork&style=flat-square" />
+	<a href="https://github.com/coffeekraken/s-google-map-info-window-component">
+		<img src="https://img.shields.io/github/forks/coffeekraken/s-google-map-info-window-component.svg?style=social&label=Fork&style=flat-square" />
 	</a>
-	<a href="https://github.com/coffeekraken/s-google-map-marker-component">
-		<img src="https://img.shields.io/github/stars/coffeekraken/s-google-map-marker-component.svg?style=social&label=Star&style=flat-square" />
+	<a href="https://github.com/coffeekraken/s-google-map-info-window-component">
+		<img src="https://img.shields.io/github/stars/coffeekraken/s-google-map-info-window-component.svg?style=social&label=Star&style=flat-square" />
 	</a> -->
 	<a href="https://twitter.com/coffeekrakenio">
 		<img src="https://img.shields.io/twitter/url/http/coffeekrakenio.svg?style=social&style=flat-square" />
@@ -31,11 +31,11 @@ Provide a simple, declarative and powerful webcomponent wrapper to create google
 
 ## Table of content
 
-1. **[Demo](http://components.coffeekraken.io/app/s-google-map-marker-component)**
+1. **[Demo](http://components.coffeekraken.io/app/s-google-map-info-window-component)**
 2. [Install](#readme-install)
 3. [Get Started](#readme-get-started)
 4. [Javascript API](doc/js)
-5. [Sugar Web Components Documentation](https://github.com/Coffeekraken/sugar/blob/master/doc/webcomponent.md)
+5. [Sugar Web Components Documentation](https://github.com/Coffeekraken/sugar/blob/master/doc/js/webcomponents.md)
 6. [Browsers support](#readme-browsers-support)
 7. [Contribute](#readme-contribute)
 8. [Who are Coffeekraken?](#readme-who-are-coffeekraken)
@@ -45,7 +45,7 @@ Provide a simple, declarative and powerful webcomponent wrapper to create google
 ## Install
 
 ```
-npm install coffeekraken-s-google-map-marker-component --save
+npm install coffeekraken-s-google-map-info-window-component --save
 ```
 
 <a name="readme-get-started"></a>
@@ -56,13 +56,20 @@ First, import the component into your javascript file like so:
 ```js
 import SGoogleMapComponent from 'coffeekraken-s-google-map-component'
 import SGoogleMapMarkerComponent from 'coffeekraken-s-google-map-marker-component'
+import SGoogleMapInfoWindowComponent from 'coffeekraken-s-google-map-info-window-component'
 ```
 
 Then simply use it inside your html like so:
 
 ```html
 <s-google-map api-key="..." center="{lat: -25.363, lng: 131.044}">
-	<s-google-map-marker api-key="..." position="{lat: -25.363, lng: 131.044}"></s-google-map-marker>
+	<s-google-map-marker api-key="..." position="{lat: -25.363, lng: 131.044}">
+		<s-google-map-info-window>
+			<div class="my-cool-info-window">
+				<h1>Hello World</h1>
+			</div>
+		</s-google-map-info-window>
+	</s-google-map-marker>
 </s-google-map>
 ```
 

@@ -7,10 +7,11 @@ Provide a simple, declarative and powerful webcomponent wrapper to create google
 
 ### Example
 ```html
-	<s-google-map api-key="..." center="{lat: -25.363, lng: 131.044}">
-	<s-google-map-marker api-key="..." position="{lat: -25.363, lng: 131.044}">
+	<s-google-map center="{lat: -25.363, lng: 131.044}">
+	<s-google-map-marker position="{lat: -25.363, lng: 131.044}">
 		<s-google-map-info-window>
-  		<!-- info window content here... -->
+  		<h3>Info window content</h3>
+  		<p>Aliquam rhoncus nibh vitae enim sodales posuere. Aliquam erat volutpat.</p>
 		</s-google-map-info-window>
 	</s-google-map-marker>
 </s-google-map>
