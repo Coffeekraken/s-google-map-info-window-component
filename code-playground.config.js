@@ -29,7 +29,14 @@ module.exports = {
 						Provide a simple, declarative and powerful webcomponent wrapper to create google map markers inside an s-google-map component.
 					</p>
 					<s-google-map api-key="AIzaSyDCD2MPJFbXBkc5hNB5p8v21XcpeIo_5Mw" zoom="2" center="{lat: -25.363, lng: 131.044}">
-						<s-google-map-marker api-key="AIzaSyDCD2MPJFbXBkc5hNB5p8v21XcpeIo_5Mw" position="{lat: -25.363, lng: 131.044}"></s-google-map-marker-component>
+						<s-google-map-marker api-key="AIzaSyDCD2MPJFbXBkc5hNB5p8v21XcpeIo_5Mw" position="{lat: -25.363, lng: 131.044}">
+							<s-google-map-info-window opened>
+								<div class="my-cool-google-info-window">
+									<h1 class="h5 m-b">Hello World</h1>
+									<p class="p">Donec eu consequat nisl. Nullam faucibus rutrum lorem at vehicula. Praesent ut fermentum augue. Proin convallis semper magna, et viverra augue fermentum in. Sed vel sagittis quam, a eleifend quam.</p>
+								</div>
+							</s-google-map-info-window>
+						</s-google-map-marker-component>
 					</s-google-map>
 				</div>
 			`
@@ -53,6 +60,19 @@ module.exports = {
 					@include s-ratio(16/9);
 					border:5px white solid;
 				}
+				.my-cool-google-info-window {
+					min-width: s-rem(250px);
+					position:relative;
+					left:50%;
+					@include s-translate(-50%);
+					@include s-depth(4);
+					padding:s-rem(20px);
+					@include s-bubble(
+						$color : #fff,
+						$side : bottom,
+						$align : center
+					);
+				}
 			`
 		},
 		js : {
@@ -60,7 +80,8 @@ module.exports = {
 			data : `
 				import 'webcomponents.js/webcomponents-lite'
 				import SGoogleMapComponent from 'coffeekraken-s-google-map-component'
-				import SGoogleMapMarkerComponent from './dist/index'
+				import SGoogleMapMarkerComponent from 'coffeekraken-s-google-map-marker-component'
+				import SGoogleMapInfoWindowComponent from './dist/index'
 			`
 		}
 	}
