@@ -3,7 +3,7 @@ module.exports = {
 	port : 3000,
 
 	// title
-	title : 's-google-map-marker-component',
+	title : 's-google-map-info-window-component',
 
 	// layout
 	layout : 'right',
@@ -23,10 +23,10 @@ module.exports = {
 			data : `
 				<div class="container">
 					<h1 class="h1 m-b-small">
-						Coffeekraken s-google-map-marker-component
+						Coffeekraken s-google-map-info-window-component
 					</h1>
 					<p class="p m-b-bigger">
-						Provide a simple, declarative and powerful webcomponent wrapper to create google map markers inside an s-google-map component.
+						Provide a simple, declarative and powerful webcomponent wrapper to create google info window inside an s-google-map-marker component.
 					</p>
 					<s-google-map api-key="AIzaSyDCD2MPJFbXBkc5hNB5p8v21XcpeIo_5Mw" zoom="2" center="{lat: -25.363, lng: 131.044}">
 						<s-google-map-marker api-key="AIzaSyDCD2MPJFbXBkc5hNB5p8v21XcpeIo_5Mw" position="{lat: -25.363, lng: 131.044}">
