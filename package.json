@@ -1,8 +1,8 @@
 {
-	"name": "coffeekraken-s-google-map-info-window-component",
-	"version": "0.0.2",
-	"description": "Provide a simple, declarative and powerful webcomponent wrapper to create google info window inside an s-google-map-marker component.",
-	"main": "dist/index.js",
+  "name": "coffeekraken-s-google-map-info-window-component",
+  "version": "0.0.2",
+  "description": "Provide a simple, declarative and powerful webcomponent wrapper to create google info window inside an s-google-map-marker component.",
+  "main": "dist/index.js",
   "homepage": "http://coffeekraken.io",
   "repository": {
     "type": "git",
@@ -25,35 +25,37 @@
     "start": "npm-watch",
     "watch": "npm-watch"
   },
-	"keywords": [
+  "keywords": [
     "google",
     "map",
-		"marker",
+    "marker",
     "info",
     "window",
-		"webcomponent",
-		"component",
-		"html",
-		"sugar",
-		"read",
-		"more",
-		"coffee",
-		"kraken",
-		"coffeekraken"
-	],
-	"author": "Coffeekraken <hello@coffeekraken.io>",
-  "contributors": [{
-    "name": "Olivier Bossel",
-    "email": "olivier.bossel@gmail.com",
-    "url": "http://olivierbossel.com"
-  }],
-	"license": "MIT",
-	"dependencies": {
-		"coffeekraken-sugar": "^0.0.2",
-		"coffeekraken-s-google-map-component": "^0.0.2",
-		"coffeekraken-s-google-map-component-base": "^0.0.2"
-	},
-	"devDependencies": {
+    "webcomponent",
+    "component",
+    "html",
+    "sugar",
+    "read",
+    "more",
+    "coffee",
+    "kraken",
+    "coffeekraken"
+  ],
+  "author": "Coffeekraken <hello@coffeekraken.io>",
+  "contributors": [
+    {
+      "name": "Olivier Bossel",
+      "email": "olivier.bossel@gmail.com",
+      "url": "http://olivierbossel.com"
+    }
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "coffeekraken-s-google-map-component": "^0.0.2",
+    "coffeekraken-s-google-map-component-base": "^0.0.2",
+    "coffeekraken-sugar": "^0.0.2"
+  },
+  "devDependencies": {
     "coffeekraken-s-google-map-marker-component": "^0.0.2",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.20.0",
@@ -73,5 +75,5 @@
     "npm-watch": "^0.1.8",
     "webcomponents.js": "^0.7.24",
     "webpack": "^2.0.0"
-	}
+  }
 }
