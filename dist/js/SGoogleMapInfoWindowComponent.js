@@ -63,15 +63,15 @@ var SGoogleMapInfoWindowComponent = function (_SGoogleMapComponentB) {
 	}
 
 	_createClass(SGoogleMapInfoWindowComponent, [{
-		key: 'shouldAcceptComponentProp',
+		key: 'shouldComponentAcceptProp',
 
 
 		/**
    * Should accept component props
-   * @definition 		SWebComponent.shouldAcceptComponentProp
+   * @definition 		SWebComponent.shouldComponentAcceptProp
    * @protected
    */
-		value: function shouldAcceptComponentProp(prop) {
+		value: function shouldComponentAcceptProp(prop) {
 			return true;
 		}
 

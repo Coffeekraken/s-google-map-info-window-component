@@ -99,10 +99,10 @@ export default class SGoogleMapInfoWindowComponent extends SGoogleMapComponentBa
 
 	/**
 	 * Should accept component props
-	 * @definition 		SWebComponent.shouldAcceptComponentProp
+	 * @definition 		SWebComponent.shouldComponentAcceptProp
 	 * @protected
 	 */
-	shouldAcceptComponentProp(prop) {
+	shouldComponentAcceptProp(prop) {
 		return true;
 	}
 
