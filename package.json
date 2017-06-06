@@ -1,6 +1,6 @@
 {
   "name": "coffeekraken-s-google-map-info-window-component",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "Provide a simple, declarative and powerful webcomponent wrapper to create google info window inside an s-google-map-marker component.",
   "main": "dist/index.js",
   "homepage": "http://coffeekraken.io",
@@ -51,12 +51,12 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "coffeekraken-s-google-map-component": "^0.0.3",
-    "coffeekraken-s-google-map-component-base": "^0.0.2",
-    "coffeekraken-sugar": "^0.0.3"
+    "coffeekraken-s-google-map-component": "^1.0.0",
+    "coffeekraken-s-google-map-component-base": "^1.0.0",
+    "coffeekraken-sugar": "^1.0.0"
   },
   "devDependencies": {
-    "coffeekraken-s-google-map-marker-component": "^0.0.3",
+    "coffeekraken-s-google-map-marker-component": "^1.0.0",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.20.0",
     "babel-loader": "^6.2.9",
