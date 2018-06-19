@@ -1,0 +1,26 @@
+@import 'node_modules/coffeekraken-sugar/index';
+@import 'node_modules/coffeekraken-s-typography-component/index';
+@include s-init();
+@include s-classes();
+@include s-typography-classes();
+body {
+	padding: s-space(big);
+}
+s-google-map {
+	@include s-depth(5);
+	@include s-ratio(16/9);
+	border:5px white solid;
+}
+.my-cool-google-info-window {
+	min-width: s-rem(250px);
+	position:relative;
+	left:50%;
+	@include s-translate(-50%);
+	@include s-depth(4);
+	padding:s-rem(20px);
+	@include s-bubble(
+		$color : #fff,
+		$side : bottom,
+		$align : center
+	);
+}
