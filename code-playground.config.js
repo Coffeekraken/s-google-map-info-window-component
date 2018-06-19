@@ -21,39 +21,34 @@ module.exports = {
 		html : {
 			language : 'html',
 			data : `
-				<div class="container">
-					<h1 class="h1 m-b-small">
-						Coffeekraken s-google-map-info-window-component
-					</h1>
-					<p class="p m-b-bigger">
-						Provide a simple, declarative and powerful webcomponent wrapper to create google info window inside an s-google-map-marker component.
-					</p>
-					<s-google-map api-key="AIzaSyDCD2MPJFbXBkc5hNB5p8v21XcpeIo_5Mw" zoom="2" center="{lat: -25.363, lng: 131.044}">
-						<s-google-map-marker api-key="AIzaSyDCD2MPJFbXBkc5hNB5p8v21XcpeIo_5Mw" position="{lat: -25.363, lng: 131.044}">
-							<s-google-map-info-window opened>
-								<div class="my-cool-google-info-window">
-									<h1 class="h5 m-b">Hello World</h1>
-									<p class="p">Donec eu consequat nisl. Nullam faucibus rutrum lorem at vehicula. Praesent ut fermentum augue. Proin convallis semper magna, et viverra augue fermentum in. Sed vel sagittis quam, a eleifend quam.</p>
-								</div>
-							</s-google-map-info-window>
-						</s-google-map-marker-component>
-					</s-google-map>
-				</div>
+				<h1 class="h3 m-b-small">
+					Coffeekraken s-google-map-info-window-component
+				</h1>
+				<p class="p m-b-bigger">
+					Provide a simple, declarative and powerful webcomponent wrapper to create google info window inside an s-google-map-marker component.
+				</p>
+				<s-google-map api-key="AIzaSyDCD2MPJFbXBkc5hNB5p8v21XcpeIo_5Mw" zoom="2" center="{lat: -25.363, lng: 131.044}">
+					<s-google-map-marker api-key="AIzaSyDCD2MPJFbXBkc5hNB5p8v21XcpeIo_5Mw" position="{lat: -25.363, lng: 131.044}">
+						<s-google-map-info-window opened>
+							<div class="my-cool-google-info-window">
+								<h1 class="h5 m-b">Hello World</h1>
+								<p class="p">Donec eu consequat nisl. Nullam faucibus rutrum lorem at vehicula. Praesent ut fermentum augue. Proin convallis semper magna, et viverra augue fermentum in. Sed vel sagittis quam, a eleifend quam.</p>
+							</div>
+						</s-google-map-info-window>
+					</s-google-map-marker-component>
+				</s-google-map>
 			`
 		},
 		css : {
 			language : 'sass',
 			data : `
 				@import 'node_modules/coffeekraken-sugar/index';
+				@import 'node_modules/coffeekraken-s-typography-component/index';
 				@include s-init();
 				@include s-classes();
 				@include s-typography-classes();
 				body {
-					background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-				}
-				.container {
-					@include s-position(absolute, middle, center);
-					min-width:80vw;
+					padding: s-space(big);
 				}
 				s-google-map {
 					@include s-depth(5);
