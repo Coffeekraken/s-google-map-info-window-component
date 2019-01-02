@@ -29,6 +29,8 @@
 
 Provide a simple, declarative and powerful webcomponent wrapper to create google map markers inside an s-google-map component.
 
+[![View demo](http://components.coffeekraken.io/assets/img/view-demo.png)](http://components.coffeekraken.io/app/s-google-map-info-window-component)
+
 ## Table of content
 
 1. **[Demo](http://components.coffeekraken.io/app/s-google-map-info-window-component)**
