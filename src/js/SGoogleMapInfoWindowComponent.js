@@ -1,8 +1,8 @@
-import SGoogleMapComponentBase from 'coffeekraken-s-google-map-component-base'
-import __whenAttribute from 'coffeekraken-sugar/js/dom/whenAttribute'
-import __previous from 'coffeekraken-sugar/js/dom/previous'
-import __next from 'coffeekraken-sugar/js/dom/next'
-import __uniqid from 'coffeekraken-sugar/js/utils/uniqid'
+import SGoogleMapComponentBase from "coffeekraken-s-google-map-component-base";
+import __whenAttribute from "coffeekraken-sugar/js/dom/whenAttribute";
+import __previous from "coffeekraken-sugar/js/dom/previous";
+import __next from "coffeekraken-sugar/js/dom/next";
+import __uniqid from "coffeekraken-sugar/js/utils/uniqid";
 
 /**
  * @name 		SGoogleMapInfoWindowComponent
@@ -24,7 +24,6 @@ import __uniqid from 'coffeekraken-sugar/js/utils/uniqid'
  */
 
 export default class SGoogleMapInfoWindowComponent extends SGoogleMapComponentBase {
-
 	/**
 	 * Default css
 	 * @definition 		SWebComponent.defaultCss
@@ -58,13 +57,12 @@ export default class SGoogleMapInfoWindowComponent extends SGoogleMapComponentBa
 	 */
 	static get defaultProps() {
 		return {
-
 			/**
 			 * Set if the popup window is opened or not
 			 * @prop
 			 * @type 	{Boolean}
 			 */
-			opened : false
+			opened: false
 
 			/**
 			 * @name 	Google Map Info Window API
@@ -73,7 +71,6 @@ export default class SGoogleMapInfoWindowComponent extends SGoogleMapComponentBa
 			 * @type 	{Google.Map.Marker}
 			 * @see 	https://developers.google.com/maps/documentation/javascript/3.exp/reference#MarkerOptions 	Google Map Marker Options
 			 */
-
 		};
 	}
 
@@ -83,9 +80,11 @@ export default class SGoogleMapInfoWindowComponent extends SGoogleMapComponentBa
 	 * @protected
 	 */
 	static get mountDependencies() {
-		return [function() {
-			return __whenAttribute(this.parentNode, 'inited');
-		}];
+		return [
+			function() {
+				return __whenAttribute(this.parentNode, "inited");
+			}
+		];
 	}
 
 	/**
@@ -94,7 +93,7 @@ export default class SGoogleMapInfoWindowComponent extends SGoogleMapComponentBa
 	 * @protected
 	 */
 	static get physicalProps() {
-		return ['opened'];
+		return ["opened"];
 	}
 
 	/**
@@ -125,64 +124,82 @@ export default class SGoogleMapInfoWindowComponent extends SGoogleMapComponentBa
 
 		// get the map instance to use for this marker.
 		// this is grabed from the parent node that need to be a google-map component
-		if ( ! this.marker || ! this.map) {
-			throw `The "${this._componentNameDash}" component has to be a direct child of a "SGoogleMapMarkerComponent"`;
+		if (!this.marker || !this.map) {
+			throw `The "${
+				this._componentNameDash
+			}" component has to be a direct child of a "SGoogleMapMarkerComponent"`;
 		}
 
 		this._uniqid = __uniqid();
 
 		// set a uniq id for the info window
-		this.children[0].setAttribute(`${this._componentNameDash}-id`, this._uniqid);
+		this.children[0].setAttribute(
+			`${this._componentNameDash}-id`,
+			this._uniqid
+		);
 
 		// search close buttons to add the id as value
-		[].forEach.call(this.querySelectorAll(`[${this._componentNameDash}-close]`), (closeElm) => {
-			closeElm.setAttribute(`${this._componentNameDash}-close`, this._uniqid);
-		});
+		[].forEach.call(
+			this.querySelectorAll(`[${this._componentNameDash}-close]`),
+			closeElm => {
+				closeElm.setAttribute(
+					`${this._componentNameDash}-close`,
+					this._uniqid
+				);
+			}
+		);
 
 		// init info window
 		this._infoWindow = new this.google.maps.InfoWindow({
-			content : this.innerHTML
+			content: this.innerHTML
 		});
 
-		this.google.maps.event.addListener(this._infoWindow, 'domready', (e) => {
-			[].forEach.call(document.querySelectorAll('.gm-style-iw'), (infoViewElm) => {
-				// get the previous
-				const preview = __previous(infoViewElm, 'div');
-				if ( ! preview.hasAttribute('hided')) {
-					preview.setAttribute('hided', true);
-					preview.style.display = 'none';
+		this.google.maps.event.addListener(this._infoWindow, "domready", e => {
+			[].forEach.call(
+				document.querySelectorAll(".gm-style-iw"),
+				infoViewElm => {
+					// get the previous
+					const preview = __previous(infoViewElm, "div");
+					if (!preview.hasAttribute("hided")) {
+						preview.setAttribute("hided", true);
+						preview.style.display = "none";
+					}
+					// next is the close button
+					const closeBtn = __next(infoViewElm, "button, div");
+					if (closeBtn && !closeBtn.hasAttribute("hided")) {
+						closeBtn.setAttribute("hided", true);
+						closeBtn.style.display = "none";
+					}
 				}
-				// next is the close button
-				const closeBtn = __next(infoViewElm, 'div');
-				if ( ! closeBtn.hasAttribute('hided')) {
-					closeBtn.setAttribute('hided', true);
-					closeBtn.style.display = 'none';
-				}
-			});
+			);
 		});
 
-		this.google.maps.event.addListener(this.map, 'click', () => {
+		this.google.maps.event.addListener(this.map, "click", () => {
 			// close
-			this.setProp('opened', false);
+			this.setProp("opened", false);
 		});
 
-		this.map.getDiv().addEventListener('click', (e) => {
-			if (e.target && e.target.hasAttribute(`${this._componentNameDash}-close`)) {
-				const id = e.target.getAttribute(`${this._componentNameDash}-close`);
+		this.map.getDiv().addEventListener("click", e => {
+			if (
+				e.target &&
+				e.target.hasAttribute(`${this._componentNameDash}-close`)
+			) {
+				const id = e.target.getAttribute(
+					`${this._componentNameDash}-close`
+				);
 				if (id === this._uniqid) {
-					this.setProp('opened', false);
+					this.setProp("opened", false);
 				}
 			}
 		});
 
 		// listen for marker click
-		this.marker.addListener('click', this._onMarkerClick.bind(this));
+		this.marker.addListener("click", this._onMarkerClick.bind(this));
 
 		// open if opened props is true
 		if (this.props.opened) {
 			this._open();
 		}
-
 	}
 
 	/**
@@ -200,11 +217,11 @@ export default class SGoogleMapInfoWindowComponent extends SGoogleMapComponentBa
 	 * @protected
 	 */
 	componentWillReceiveProp(name, newVal, oldVal) {
-		switch(name) {
-			case 'opened':
+		switch (name) {
+			case "opened":
 				if (newVal) this._open();
 				else this._close();
-			break;
+				break;
 		}
 	}
 
@@ -224,14 +241,14 @@ export default class SGoogleMapInfoWindowComponent extends SGoogleMapComponentBa
 	 */
 	_onMarkerClick(e) {
 		// open the info window
-		this.setProp('opened', true);
+		this.setProp("opened", true);
 	}
 
 	/**
 	 * Open the window
 	 */
 	open() {
-		this.setProp('opened', true);
+		this.setProp("opened", true);
 	}
 	_open() {
 		if (this._opened) return;
@@ -243,10 +260,10 @@ export default class SGoogleMapInfoWindowComponent extends SGoogleMapComponentBa
 	 * Close the window
 	 */
 	close() {
-		this.setProp('opened', false);
+		this.setProp("opened", false);
 	}
 	_close() {
-		if ( ! this._opened) return;
+		if (!this._opened) return;
 		this._opened = false;
 		this._infoWindow.close();
 	}
