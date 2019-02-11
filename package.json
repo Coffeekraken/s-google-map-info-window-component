@@ -1,6 +1,6 @@
 {
   "name": "coffeekraken-s-google-map-info-window-component",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Provide a simple, declarative and powerful webcomponent wrapper to create google info window inside an s-google-map-marker component.",
   "main": "dist/index.js",
   "homepage": "http://coffeekraken.io",

@@ -12,7 +12,7 @@ s-google-map {
 	border:5px white solid;
 }
 .my-cool-google-info-window {
-	min-width: s-rem(250px);
+	width: s-rem(250px);
 	position:relative;
 	left:50%;
 	@include s-translate(-50%);

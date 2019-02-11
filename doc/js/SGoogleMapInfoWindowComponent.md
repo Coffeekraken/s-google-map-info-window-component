@@ -16,22 +16,24 @@ Provide a simple, declarative and powerful webcomponent wrapper to create google
 	</s-google-map-marker>
 </s-google-map>
 ```
-See more : [https://developers.google.com/maps/documentation/javascript/](https://developers.google.com/maps/documentation/javascript/)
+See : **See more** : [https://developers.google.com/maps/documentation/javascript/](https://developers.google.com/maps/documentation/javascript/)
 
-Author : Olivier Bossel <olivier.bossel@gmail.com>
+Author : Olivier Bossel [olivier.bossel@gmail.com](mailto:olivier.bossel@gmail.com)
 
 
 
 
 ## Attributes
 
-Here's the list of available attribute to set on the element.
+Here's the list of available attribute(s).
 
 ### opened
 
 Set if the popup window is opened or not
 
 Type : **{ [Boolean](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Boolean) }**
+
+Default : **false**
 
 
 ### Google Map Info Window API
@@ -40,7 +42,7 @@ Support all the google map info window API properties
 
 Type : **{ Google.Map.Marker }**
 
-Google Map Marker Options : [https://developers.google.com/maps/documentation/javascript/3.exp/reference#MarkerOptions](https://developers.google.com/maps/documentation/javascript/3.exp/reference#MarkerOptions)
+See : **Google Map Marker Options** : [https://developers.google.com/maps/documentation/javascript/3.exp/reference#MarkerOptions](https://developers.google.com/maps/documentation/javascript/3.exp/reference#MarkerOptions)
 
 
 
