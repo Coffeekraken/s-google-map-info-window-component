@@ -28,6 +28,10 @@ var _uniqid = require("coffeekraken-sugar/js/utils/uniqid");
 
 var _uniqid2 = _interopRequireDefault(_uniqid);
 
+var _style = require("coffeekraken-sugar/js/dom/style");
+
+var _style2 = _interopRequireDefault(_style);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -45,8 +49,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * <s-google-map center="{lat: -25.363, lng: 131.044}">
  * 	<s-google-map-marker position="{lat: -25.363, lng: 131.044}">
  * 		<s-google-map-info-window>
- *   		<h3>Info window content</h3>
- *   		<p>Aliquam rhoncus nibh vitae enim sodales posuere. Aliquam erat volutpat.</p>
+ * 			<div class="my-cool-google-info-window">
+ *  	 		<h3>Info window content</h3>
+ *   			<p>Aliquam rhoncus nibh vitae enim sodales posuere. Aliquam erat volutpat.</p>
+ * 			</div>
  * 		</s-google-map-info-window>
  * 	</s-google-map-marker>
  * </s-google-map>
@@ -74,7 +80,7 @@ var SGoogleMapInfoWindowComponent = function (_SGoogleMapComponentB) {
    * @protected
    */
 		value: function shouldComponentAcceptProp(prop) {
-			return true;
+			return prop !== "mounted";
 		}
 
 		/**
@@ -108,50 +114,14 @@ var SGoogleMapInfoWindowComponent = function (_SGoogleMapComponentB) {
 				throw "The \"" + this._componentNameDash + "\" component has to be a direct child of a \"SGoogleMapMarkerComponent\"";
 			}
 
-			this._uniqid = (0, _uniqid2.default)();
-
-			// set a uniq id for the info window
-			this.children[0].setAttribute(this._componentNameDash + "-id", this._uniqid);
-
-			// search close buttons to add the id as value
-			[].forEach.call(this.querySelectorAll("[" + this._componentNameDash + "-close]"), function (closeElm) {
-				closeElm.setAttribute(_this2._componentNameDash + "-close", _this2._uniqid);
-			});
-
 			// init info window
 			this._infoWindow = new this.google.maps.InfoWindow({
 				content: this.innerHTML
 			});
 
-			this.google.maps.event.addListener(this._infoWindow, "domready", function (e) {
-				[].forEach.call(document.querySelectorAll(".gm-style-iw"), function (infoViewElm) {
-					// get the previous
-					var preview = (0, _previous2.default)(infoViewElm, "div");
-					if (!preview.hasAttribute("hided")) {
-						preview.setAttribute("hided", true);
-						preview.style.display = "none";
-					}
-					// next is the close button
-					var closeBtn = (0, _next2.default)(infoViewElm, "button, div");
-					if (closeBtn && !closeBtn.hasAttribute("hided")) {
-						closeBtn.setAttribute("hided", true);
-						closeBtn.style.display = "none";
-					}
-				});
-			});
-
 			this.google.maps.event.addListener(this.map, "click", function () {
 				// close
 				_this2.setProp("opened", false);
-			});
-
-			this.map.getDiv().addEventListener("click", function (e) {
-				if (e.target && e.target.hasAttribute(_this2._componentNameDash + "-close")) {
-					var id = e.target.getAttribute(_this2._componentNameDash + "-close");
-					if (id === _this2._uniqid) {
-						_this2.setProp("opened", false);
-					}
-				}
 			});
 
 			// listen for marker click
@@ -212,8 +182,12 @@ var SGoogleMapInfoWindowComponent = function (_SGoogleMapComponentB) {
 	}, {
 		key: "_onMarkerClick",
 		value: function _onMarkerClick(e) {
-			// open the info window
-			this.setProp("opened", true);
+			if (this.props.opened) {
+				this.setProp("opened", false);
+			} else {
+				// open the info window
+				this.setProp("opened", true);
+			}
 		}
 
 		/**
@@ -291,7 +265,7 @@ var SGoogleMapInfoWindowComponent = function (_SGoogleMapComponentB) {
    * @protected
    */
 		value: function defaultCss(componentName, componentNameDash) {
-			return "\n\t\t\t" + componentNameDash + " {\n\t\t\t\tdisplay: none;\n\t\t\t}\n\t\t\t.gm-style-iw {\n\t\t\t\ttop:auto !important; left:0 !important;\n\t\t\t\tbottom: 0 !important;\n\t\t\t\twidth:100% !important;\n\t\t\t}\n\t\t\t.gm-style-iw > div:first-child {\n\t\t\t\tdisplay:block !important;\n\t\t\t}\n\t\t\t.gm-style-iw,\n\t\t\t.gm-style-iw > *,\n\t\t\t.gm-style-iw > * > * {\n\t\t\t\toverflow:visible !important;\n\t\t\t}\n\t\t";
+			return "\n\t\t\t" + componentNameDash + " {\n\t\t\t\tdisplay: none;\n\t\t\t}\n\t\t\t.gm-style-iw {\n\t\t\t\tbackground-color: transparent !important;\n\t\t\t\tborder-radius: 0 !important;\n\t\t\t\tpadding: 0 !important;\n\t\t\t\tbox-shadow: none !important;\n\t\t\t}\n\t\t\t.gm-style-iw:before {\n\t\t\t\tdisplay: none !important;\n\t\t\t}\n\t\t\t.gm-style-iw,\n\t\t\t.gm-style-iw > *,\n\t\t\t.gm-style-iw > * > * {\n\t\t\t\toverflow:visible !important;\n\t\t\t}\n\t\t\t.gm-style-iw [aria-label=\"Close\"] {\n\t\t\t\tdisplay: none !important;\n\t\t\t}\n\t\t";
 		}
 
 		/**
