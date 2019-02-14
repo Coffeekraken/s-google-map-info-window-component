@@ -10,8 +10,10 @@ Provide a simple, declarative and powerful webcomponent wrapper to create google
 	<s-google-map center="{lat: -25.363, lng: 131.044}">
 	<s-google-map-marker position="{lat: -25.363, lng: 131.044}">
 		<s-google-map-info-window>
-  		<h3>Info window content</h3>
-  		<p>Aliquam rhoncus nibh vitae enim sodales posuere. Aliquam erat volutpat.</p>
+			<div class="my-cool-google-info-window">
+ 	 		<h3>Info window content</h3>
+  			<p>Aliquam rhoncus nibh vitae enim sodales posuere. Aliquam erat volutpat.</p>
+			</div>
 		</s-google-map-info-window>
 	</s-google-map-marker>
 </s-google-map>

@@ -3,6 +3,7 @@ import __whenAttribute from "coffeekraken-sugar/js/dom/whenAttribute";
 import __previous from "coffeekraken-sugar/js/dom/previous";
 import __next from "coffeekraken-sugar/js/dom/next";
 import __uniqid from "coffeekraken-sugar/js/utils/uniqid";
+import __style from "coffeekraken-sugar/js/dom/style";
 
 /**
  * @name 		SGoogleMapInfoWindowComponent
@@ -13,8 +14,10 @@ import __uniqid from "coffeekraken-sugar/js/utils/uniqid";
  * <s-google-map center="{lat: -25.363, lng: 131.044}">
  * 	<s-google-map-marker position="{lat: -25.363, lng: 131.044}">
  * 		<s-google-map-info-window>
- *   		<h3>Info window content</h3>
- *   		<p>Aliquam rhoncus nibh vitae enim sodales posuere. Aliquam erat volutpat.</p>
+ * 			<div class="my-cool-google-info-window">
+ *  	 		<h3>Info window content</h3>
+ *   			<p>Aliquam rhoncus nibh vitae enim sodales posuere. Aliquam erat volutpat.</p>
+ * 			</div>
  * 		</s-google-map-info-window>
  * 	</s-google-map-marker>
  * </s-google-map>
@@ -35,17 +38,21 @@ export default class SGoogleMapInfoWindowComponent extends SGoogleMapComponentBa
 				display: none;
 			}
 			.gm-style-iw {
-				top:auto !important; left:0 !important;
-				bottom: 0 !important;
-				width:100% !important;
+				background-color: transparent !important;
+				border-radius: 0 !important;
+				padding: 0 !important;
+				box-shadow: none !important;
 			}
-			.gm-style-iw > div:first-child {
-				display:block !important;
+			.gm-style-iw:before {
+				display: none !important;
 			}
 			.gm-style-iw,
 			.gm-style-iw > *,
 			.gm-style-iw > * > * {
 				overflow:visible !important;
+			}
+			.gm-style-iw [aria-label="Close"] {
+				display: none !important;
 			}
 		`;
 	}
@@ -102,7 +109,7 @@ export default class SGoogleMapInfoWindowComponent extends SGoogleMapComponentBa
 	 * @protected
 	 */
 	shouldComponentAcceptProp(prop) {
-		return true;
+		return prop !== "mounted";
 	}
 
 	/**
@@ -130,67 +137,14 @@ export default class SGoogleMapInfoWindowComponent extends SGoogleMapComponentBa
 			}" component has to be a direct child of a "SGoogleMapMarkerComponent"`;
 		}
 
-		this._uniqid = __uniqid();
-
-		// set a uniq id for the info window
-		this.children[0].setAttribute(
-			`${this._componentNameDash}-id`,
-			this._uniqid
-		);
-
-		// search close buttons to add the id as value
-		[].forEach.call(
-			this.querySelectorAll(`[${this._componentNameDash}-close]`),
-			closeElm => {
-				closeElm.setAttribute(
-					`${this._componentNameDash}-close`,
-					this._uniqid
-				);
-			}
-		);
-
 		// init info window
 		this._infoWindow = new this.google.maps.InfoWindow({
 			content: this.innerHTML
 		});
 
-		this.google.maps.event.addListener(this._infoWindow, "domready", e => {
-			[].forEach.call(
-				document.querySelectorAll(".gm-style-iw"),
-				infoViewElm => {
-					// get the previous
-					const preview = __previous(infoViewElm, "div");
-					if (!preview.hasAttribute("hided")) {
-						preview.setAttribute("hided", true);
-						preview.style.display = "none";
-					}
-					// next is the close button
-					const closeBtn = __next(infoViewElm, "button, div");
-					if (closeBtn && !closeBtn.hasAttribute("hided")) {
-						closeBtn.setAttribute("hided", true);
-						closeBtn.style.display = "none";
-					}
-				}
-			);
-		});
-
 		this.google.maps.event.addListener(this.map, "click", () => {
 			// close
 			this.setProp("opened", false);
-		});
-
-		this.map.getDiv().addEventListener("click", e => {
-			if (
-				e.target &&
-				e.target.hasAttribute(`${this._componentNameDash}-close`)
-			) {
-				const id = e.target.getAttribute(
-					`${this._componentNameDash}-close`
-				);
-				if (id === this._uniqid) {
-					this.setProp("opened", false);
-				}
-			}
 		});
 
 		// listen for marker click
@@ -240,8 +194,12 @@ export default class SGoogleMapInfoWindowComponent extends SGoogleMapComponentBa
 	 * @param 		{MouseEvent} 		e 		The click event
 	 */
 	_onMarkerClick(e) {
-		// open the info window
-		this.setProp("opened", true);
+		if (this.props.opened) {
+			this.setProp("opened", false);
+		} else {
+			// open the info window
+			this.setProp("opened", true);
+		}
 	}
 
 	/**
