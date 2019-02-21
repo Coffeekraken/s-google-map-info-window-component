@@ -540,6 +540,8 @@
  * - invert {Boolean}
  * - opacity {Percent}
  * - mix {Color}
+ * - lightness {Percent}
+ * - saturation {Percent}
  *
  * @param 		{String|Color} 		$color 				The color name or the color value to manipulate
  * @param 		{String|List} 			[$modifier=null] 	The color modifier to apply. Can be a registered modifier name or a modifier list
@@ -1666,6 +1668,7 @@
  * - sugar.size.abs.cover : ```.abs-cover```
  * - sugar.size.abs.contain : ```.abs-contain```
  * - sugar.size.abs.fit : ```.abs-fit```
+ * - sugar.media.object : ```.mo .mo--center .mo--end .mo__content```
  * - sugar.clearfix.default : ```.clearfix```
  * - sugar.clearfix.float : ```.clearfix-float```
  * - sugar.clearfix.micro : ```.clearfix-micro```
@@ -2207,6 +2210,38 @@
   height: 100%;
   top: 0;
   left: 0;
+}
+
+.mo {
+  /**
+	 * @name 		```.mo .mo--center .mo__content```
+	 * Famous media object class
+	 * @styleguide 	Helpers / Media object
+	 * @example 	html
+	 * <div class="mo">
+	 *   <div class="mo__content">
+	 *     <img src="https://source.unsplash.com/random/100x100" />
+	 *   </div>
+	 *   <div class="mo__content">
+	 *     <h2 class="h3">Hello World</h2>
+	 *     <p class="p">Phasellus fringilla aliquet justo eget pulvinar. Donec in justo leo.</p>
+	 *   </div>
+	 * </div>
+	 */
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.mo--center {
+  align-items: center;
+}
+
+.mo--end {
+  align-items: flex-end;
+}
+
+.mo__content {
+  flex: 0 1 auto;
 }
 
 .clearfix {
