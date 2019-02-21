@@ -43,6 +43,9 @@ export default class SGoogleMapInfoWindowComponent extends SGoogleMapComponentBa
 				padding: 0 !important;
 				box-shadow: none !important;
 			}
+			.gm-style-iw-t:before,
+			.gm-style-iw-t:after,
+			.gm-style-iw:after,
 			.gm-style-iw:before {
 				display: none !important;
 			}
