@@ -265,7 +265,7 @@ var SGoogleMapInfoWindowComponent = function (_SGoogleMapComponentB) {
    * @protected
    */
 		value: function defaultCss(componentName, componentNameDash) {
-			return "\n\t\t\t" + componentNameDash + " {\n\t\t\t\tdisplay: none;\n\t\t\t}\n\t\t\t.gm-style-iw {\n\t\t\t\tbackground-color: transparent !important;\n\t\t\t\tborder-radius: 0 !important;\n\t\t\t\tpadding: 0 !important;\n\t\t\t\tbox-shadow: none !important;\n\t\t\t}\n\t\t\t.gm-style-iw-t:before,\n\t\t\t.gm-style-iw-t:after,\n\t\t\t.gm-style-iw:after,\n\t\t\t.gm-style-iw:before {\n\t\t\t\tdisplay: none !important;\n\t\t\t}\n\t\t\t.gm-style-iw,\n\t\t\t.gm-style-iw > *,\n\t\t\t.gm-style-iw > * > * {\n\t\t\t\toverflow:visible !important;\n\t\t\t}\n\t\t\t.gm-style-iw [aria-label=\"Close\"] {\n\t\t\t\tdisplay: none !important;\n\t\t\t}\n\t\t";
+			return "\n\t\t\t" + componentNameDash + " {\n\t\t\t\tdisplay: none;\n\t\t\t}\n\t\t\t.gm-style-iw {\n\t\t\t\tbackground-color: transparent !important;\n\t\t\t\tborder-radius: 0 !important;\n\t\t\t\tpadding: 0 !important;\n\t\t\t\tbox-shadow: none !important;\n\t\t\t}\n\t\t\t.gm-style-iw-t:before,\n\t\t\t.gm-style-iw-t:after,\n\t\t\t.gm-style-iw:after,\n\t\t\t.gm-style-iw:before {\n\t\t\t\tdisplay: none !important;\n\t\t\t}\n\t\t\t.gm-style-iw,\n\t\t\t.gm-style-iw > *,\n\t\t\t.gm-style-iw > * > * {\n\t\t\t\toverflow:visible !important;\n\t\t\t}\n\t\t\t.gm-style-iw [aria-label][draggable=\"false\"].gm-ui-hover-effect {\n\t\t\t\tdisplay: none !important;\n\t\t\t}\n\t\t";
 		}
 
 		/**

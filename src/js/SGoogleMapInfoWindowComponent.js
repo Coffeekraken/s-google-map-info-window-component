@@ -54,7 +54,7 @@ export default class SGoogleMapInfoWindowComponent extends SGoogleMapComponentBa
 			.gm-style-iw > * > * {
 				overflow:visible !important;
 			}
-			.gm-style-iw [aria-label="Close"] {
+			.gm-style-iw [aria-label][draggable="false"].gm-ui-hover-effect {
 				display: none !important;
 			}
 		`;
